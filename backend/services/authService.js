@@ -37,7 +37,11 @@ const authService = {
 
     return {
       ...tokens,
+<<<<<<< HEAD
       user: { id: user._id, email: user.email, name: user.name },
+=======
+      user: { id: user._id, email: user.email, name: user.name, role: user.role, },
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
     };
   },
 
@@ -104,7 +108,11 @@ const authService = {
     const tokens = await authService.issueTokens(user, ip, userAgent);
     return {
       ...tokens,
+<<<<<<< HEAD
       user: { id: user._id, email: user.email, name: user.name },
+=======
+      user: { id: user._id, email: user.email, name: user.name,   role: user.role,},
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
     };
   },
 

@@ -33,6 +33,11 @@ const getAllPosts = async (req, res) => {
     } = req.query;
 
     const filter = {};
+<<<<<<< HEAD
+=======
+    filter.status = status || "approved";
+filter.isResolved = false;
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
 
     if (type) filter.type = type;
     if (city) filter.city = city;

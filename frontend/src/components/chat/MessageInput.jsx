@@ -9,9 +9,16 @@ export default function MessageInput({ onSend }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+<<<<<<< HEAD
     if (!content.trim()) return;
 
     onSend(content);
+=======
+    const cleaned = content.trim();
+    if (!cleaned) return;
+
+    onSend(cleaned);
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
     setContent("");
   };
 
@@ -20,6 +27,7 @@ export default function MessageInput({ onSend }) {
       <input
         value={content}
         onChange={(e) => setContent(e.target.value)}
+<<<<<<< HEAD
         placeholder="اكتب رسالتك..."
       />
 
@@ -27,3 +35,14 @@ export default function MessageInput({ onSend }) {
     </form>
   );
 }
+=======
+        placeholder="اكتب رسالتك"
+      />
+
+      <Button type="submit" disabled={!content.trim()}>
+        إرسال
+      </Button>
+    </form>
+  );
+}
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

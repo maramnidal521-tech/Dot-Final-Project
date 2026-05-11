@@ -42,11 +42,19 @@ const profileController = {
     return res.status(200).json({ success: true, data: result });
   }),
   toggleSavePost: asyncHandler(async (req, res) => {
+<<<<<<< HEAD
     const { postType, postId } = req.params;
     if (!['lost','found'].includes(postType)) {
       return res.status(400).json({ success: false, message: 'postType must be lost or found' });
     }
     const result = await profileService.toggleSavePost(req.user._id, postId, postType);
+=======
+    const { postId } = req.params;
+    if (!postId) {
+      return res.status(400).json({ success: false, message: 'postId is required' });
+    }
+    const result = await profileService.toggleSavePost(req.user._id, postId);
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
     return res.status(200).json({ success: true, data: result });
   }),
   refreshStats: asyncHandler(async (req, res) => {
@@ -55,4 +63,8 @@ const profileController = {
   }),
 };
 
+<<<<<<< HEAD
 module.exports = profileController;
+=======
+module.exports = profileController;
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

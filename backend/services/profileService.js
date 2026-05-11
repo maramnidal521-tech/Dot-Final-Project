@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+const mongoose = require('mongoose');
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
 const User = require('../models/userSchema');
 const Post = require('../models/postSchema');
 const cache = require('../utils/cache');
@@ -191,4 +195,8 @@ const profileService = {
   }
 };
 
+<<<<<<< HEAD
 module.exports = profileService;
+=======
+module.exports = profileService;
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

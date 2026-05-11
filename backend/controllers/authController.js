@@ -53,6 +53,10 @@ const authController = {
           id: user._id,
           name: user.name,
           email: user.email,
+<<<<<<< HEAD
+=======
+          role: user.role,
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
         },
       });
     } catch (err) {

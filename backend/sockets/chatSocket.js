@@ -39,6 +39,18 @@ const chatSocket = (io) => {
 
         const conversation = await Conversation.findById(conversationId);
 
+<<<<<<< HEAD
+=======
+        const isParticipant = conversation.participants.some(
+          (id) => id.toString() === senderId.toString(),
+        );
+
+        if (!isParticipant) {
+          console.log("User is not participant in this conversation");
+          return;
+        }
+
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
         if (!conversation) {
           console.log("Conversation not found");
           return;
@@ -62,7 +74,11 @@ const chatSocket = (io) => {
 
         const populatedMessage = await Message.findById(message._id).populate(
           "sender",
+<<<<<<< HEAD
           "name email avatar"
+=======
+          "name email avatar",
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
         );
 
         io.to(conversationId).emit("newMessage", populatedMessage);
@@ -84,4 +100,8 @@ const chatSocket = (io) => {
   });
 };
 
+<<<<<<< HEAD
 module.exports = chatSocket;
+=======
+module.exports = chatSocket;
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

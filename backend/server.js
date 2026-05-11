@@ -12,12 +12,22 @@ const authRoutes = require('./routes/authRoutes');
 const postRoutes = require('./routes/postRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+<<<<<<< HEAD
+=======
+const claimRoutes = require('./routes/claimRoutes');
+const mapsRoutes = require('./routes/mapsRoutes');
+const matchRoutes = require('./routes/matchRoutes');
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
 const conversationRoutes = require("./routes/conversationRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const adminDashboardRoutes=require("./routes/adminDashboardRoutes");
 const adminReportRoutes = require("./routes/adminReportRoutes");
 const adminFraudRoutes = require("./routes/adminFraudRoutes");
 const { initNotificationSocket } = require('./sockets/notificationHandler');
+<<<<<<< HEAD
+=======
+const { bindSocketServer } = require('./sockets/feedHandler');
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
 const chatSocket = require("./sockets/chatSocket");
 
 const app = express();
@@ -48,6 +58,12 @@ app.use('/auth', authRoutes);
 app.use('/posts', postRoutes);
 app.use('/notifications', notificationRoutes);
 app.use('/profile', profileRoutes);
+<<<<<<< HEAD
+=======
+app.use('/claims', claimRoutes);
+app.use('/maps', mapsRoutes);
+app.use('/matches', matchRoutes);
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
 
 app.get('/', (req, res) => res.json({ success: true, message: 'FoundIt JO Backend ✅' }));
 app.use((req, res) => res.status(404).json({ message: 'الرابط غير موجود' }));
@@ -77,9 +93,23 @@ io.use((socket, next) => {
   }
 });
 initNotificationSocket(io);
+<<<<<<< HEAD
 chatSocket(io);
 
 mongoose.connect(process.env.DATABASE_URL)
+=======
+bindSocketServer(io);
+chatSocket(io);
+
+const mongoUri = process.env.DATABASE_URL || process.env.MONGO_URI;
+
+if (!mongoUri) {
+  console.error('Failed to start: MongoDB connection requires DATABASE_URL or MONGO_URI');
+  process.exit(1);
+}
+
+mongoose.connect(mongoUri)
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
   .then(() => {
     console.log('Connected to MongoDB');
     server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -89,4 +119,8 @@ mongoose.connect(process.env.DATABASE_URL)
     process.exit(1);
   });
 
+<<<<<<< HEAD
 module.exports = { app, server, io };
+=======
+module.exports = { app, server, io };
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

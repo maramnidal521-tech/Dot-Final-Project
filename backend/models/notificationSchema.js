@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const NOTIFICATION_TYPES = [
+<<<<<<< HEAD
   'match_found', 'new_message', 'claim_submitted', 'claim_approved', 'claim_rejected', 
+=======
+  'match_found', 'match_accepted', 'new_message', 'claim_submitted', 'claim_approved', 'claim_rejected', 
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
   'post_expired', 'post_resolved', 'report_action', 'system_alert', 'qr_scanned', 
   'new_like', 'new_comment'
 ];
@@ -37,6 +41,10 @@ NotificationSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 // اعدادات فرونت (لازم تتعدل وقبت الفرونت)
 NotificationSchema.statics.TYPE_CONFIG = {
   match_found: { icon: 'Target', color: '#22C55E', label: 'Match Found' },
+<<<<<<< HEAD
+=======
+  match_accepted: { icon: 'CheckCircle', color: '#16A34A', label: 'Match Accepted' },
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
   new_message: { icon: 'MessageCircle', color: '#2563EB', label: 'New Message' },
   claim_submitted: { icon: 'ClipboardList', color: '#F59E0B', label: 'Claim Submitted' },
   claim_approved: { icon: 'CheckCircle', color: '#22C55E', label: 'Claim Approved' },
@@ -50,4 +58,8 @@ NotificationSchema.statics.TYPE_CONFIG = {
   new_comment: { icon: 'MessageSquare', color: '#0EA5E9', label: 'New Comment' }
 };
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Notification', NotificationSchema);
+=======
+module.exports = mongoose.model('Notification', NotificationSchema);
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba

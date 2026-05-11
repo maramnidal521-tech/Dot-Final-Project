@@ -77,7 +77,10 @@ const getMyConversations = async (req, res) => {
 
     const conversations = await Conversation.find({
       participants: userId,
+<<<<<<< HEAD
       deletedBy: { $ne: userId },
+=======
+>>>>>>> cbe83063ac707c9ed114a8777998fc4fc83d01ba
     })
       .populate("participants", "name email avatar")
       .populate("relatedPost", "title type images city area")
